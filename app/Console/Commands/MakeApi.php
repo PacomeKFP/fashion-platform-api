@@ -10,12 +10,14 @@ class MakeApi extends Command
 {
     protected $signature = 'make:fullapi {name} {--fields=}';
     protected $description = 'Créer un modèle, migration, controller, resource, request, factory, seeder et DTO avec champs dynamiques';
+    private $nameLower;
 
     public function handle()
     {
         $name = $this->argument('name');
         $fields = $this->option('fields');
         $nameLower = strtolower($name);
+        $this->nameLower = $nameLower;
 
 
         if (!$fields) {
@@ -297,7 +299,7 @@ class MakeApi extends Command
         $factoryContent = implode(",\n            ", $factoryFields);
         $seederFile = preg_replace(
             "/public function run\(\).*?\{.*?\}/s",
-            "public function run()\n    {\n        \\App\\Models\\{$name}::factory()->create([\n            {$factoryContent}\n        ]);\n    }",
+            "public function run()\n    {\n        \\App\\Models\\{$name}::factory(10)->create();\n}",
             $seederFile
         );
 
@@ -391,13 +393,13 @@ class {$name}Service
         return {$name}::findOrFail(\$id);
     }
 
-    public function update({$name} \$model, {$name}DTO \$dto)
+    public function update({$name} \${$nameLower}, {$name}DTO \$dto)
     {
         \${$nameLower}->update((array) \$dto);
         return \${$nameLower};
     }
 
-    public function delete({$name} \$model)
+    public function delete({$name} \${$nameLower})
     {
         return \${$nameLower}->delete();
     }
@@ -445,10 +447,10 @@ class {$name}Policy
      * Determine whether the user can view the model.
      *
      * @param  User  \$user
-     * @param  {$name}  \$model
+     * @param  {$name}  \${$this->nameLower}
      * @return Response|bool
      */
-    public function view(User \$user, {$name} \$model): Response|bool
+    public function view(User \$user, {$name} \${$this->nameLower}): Response|bool
     {
         return true;
     }
@@ -468,10 +470,10 @@ class {$name}Policy
      * Determine whether the user can update the model.
      *
      * @param  User  \$user
-     * @param  {$name}  \$model
+     * @param  {$name}  \${$this->nameLower}
      * @return Response|bool
      */
-    public function update(User \$user, {$name} \$model): Response|bool
+    public function update(User \$user, {$name} \${$this->nameLower}): Response|bool
     {
         return true;
     }
@@ -480,10 +482,10 @@ class {$name}Policy
      * Determine whether the user can delete the model.
      *
      * @param  User  \$user
-     * @param  {$name}  \$model
+     * @param  {$name}  \${$this->nameLower}
      * @return Response|bool
      */
-    public function delete(User \$user, {$name} \$model): Response|bool
+    public function delete(User \$user, {$name} \${$this->nameLower}): Response|bool
     {
         return true;
     }
@@ -492,10 +494,10 @@ class {$name}Policy
      * Determine whether the user can restore the model.
      *
      * @param  User  \$user
-     * @param  {$name}  \$model
+     * @param  {$name}  \${$this->nameLower}
      * @return Response|bool
      */
-    public function restore(User \$user, {$name} \$model): Response|bool
+    public function restore(User \$user, {$name} \${$this->nameLower}): Response|bool
     {
         return true;
     }
@@ -504,10 +506,10 @@ class {$name}Policy
      * Determine whether the user can permanently delete the model.
      *
      * @param  User  \$user
-     * @param  {$name}  \$model
+     * @param  {$name}  \${$this->nameLower}
      * @return Response|bool
      */
-    public function forceDelete(User \$user, {$name} \$model): Response|bool
+    public function forceDelete(User \$user, {$name} \${$this->nameLower}): Response|bool
     {
         return true;
     }

@@ -9,3 +9,10 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 
 
 Route::apiResource('styliste', App\Http\Controllers\StylisteController::class);
+Route::apiResource('produit', App\Http\Controllers\ProduitController::class);
+Route::apiResource('commande', App\Http\Controllers\CommandeController::class);
+Route::apiResource('paiement', App\Http\Controllers\PaiementController::class);
+Route::apiResource('avis-styliste', App\Http\Controllers\AvisStylisteController::class);
+Route::apiResource('avis-client', App\Http\Controllers\AvisClientController::class);
+
+
