@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\CommandeConfirmee;
+use App\Notifications\CommandeConfirmeeNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
