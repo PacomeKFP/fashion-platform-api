@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignIdFor(User::class);
             $table->foreignIdFor(Produit::class);
             $table->foreignIdFor(Styliste::class);
-            $table->enum('statut',['en attente','en cours','terminé']);
+            $table->enum('statut',['en attente','en cours','terminé','annulé' ])->default('en attente');
             $table->float('prix_total')->nullable();
             $table->timestamp('date_commande')->nullable();
             $table->timestamps();
