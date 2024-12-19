@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\NouvelleCommandeStyliste;
+use App\Notifications\NouvelleCommandeStylisteNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
