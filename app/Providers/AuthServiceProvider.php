@@ -2,6 +2,23 @@
 
 namespace App\Providers;
 
+use App\Models\Photo;
+use App\Policies\PhotoPolicy;
+
+
+use App\Models\LigneCommande;
+use App\Policies\LigneCommandePolicy;
+
+use App\Models\Mensuration;
+use App\Policies\MensurationPolicy;
+
+use App\Models\Modele;
+use App\Policies\ModelePolicy;
+
+
+use App\Models\Categorie;
+use App\Policies\CategoriePolicy;
+
 use App\Models\AvisStyliste;
 use App\Policies\AvisStylistePolicy;
 
@@ -45,6 +62,11 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
+        Photo::class => PhotoPolicy::class,
+        LigneCommande::class => LigneCommandePolicy::class,
+        Mensuration::class => MensurationPolicy::class,
+        Modele::class => ModelePolicy::class,
+        Categorie::class => CategoriePolicy::class,
         AvisStyliste::class => AvisStylistePolicy::class,
         AvisClient::class => AvisClientPolicy::class,
         Paiement::class => PaiementPolicy::class,
@@ -52,6 +74,13 @@ class AuthServiceProvider extends ServiceProvider
         Produit::class => ProduitPolicy::class,
         Styliste::class => StylistePolicy::class,
 
+    
+    
+    
+    
+    
+    
+    
     
     
     

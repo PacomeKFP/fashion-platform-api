@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Styliste;
-use App\Models\Mensuration;
+use App\Models\Categorie;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -13,15 +13,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('produits', function (Blueprint $table) {
+        Schema::create('modeles', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(Categorie::class);
             $table->foreignIdFor(Styliste::class);
-            $table->foreignIdFor(Mensuration::class);
-            $table->string('nom')->nullable();//
-            $table->text('description')->nullable();//
-            $table->float('prix')->nullable();
-            $table->string('categories')->nullable();
-            $table->date('delai_confection')->nullable();
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
+            $table->string('intervalPrix')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('produits');
+        Schema::dropIfExists('modeles');
     }
 };

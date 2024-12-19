@@ -17,8 +17,10 @@ class ProduitFactory extends Factory
     public function definition(): array
     {
         $stiliste_id = \App\Models\Styliste::all()->pluck('id')->toArray();
+        $mensuration_id = \App\Models\Mensuration::all()->pluck('id')->toArray();
         return [
             'styliste_id' => fake()->randomElement($stiliste_id),
+            'mensuration_id' => fake()->randomElement($mensuration_id),
             'nom' => fake()->word(),
             'description' => fake()->sentence(),
             'prix' => fake()->randomFloat(),
