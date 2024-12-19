@@ -12,3 +12,13 @@ class Styliste extends Model
     /** @use HasFactory<\Database\Factories\StylisteFactory> */
     use HasFactory;
 }
+// Add these methods to the existing Produit model
+public function photos()
+{
+    return $this->hasMany(Photo::class);
+}
+
+public function primaryPhoto()
+{
+    return $this->hasOne(Photo::class)->where('is_primary', true);
+}
