@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\CommandeMiseAJour;
+use App\Notifications\CommandeMiseAJourNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 

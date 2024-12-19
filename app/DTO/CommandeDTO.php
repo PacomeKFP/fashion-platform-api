@@ -16,7 +16,7 @@ readonly class CommandeDTO
  public? int $user_id,
  public? int $produit_id,
  public? int $styliste_id,
- public? int $statut,
+ public? string $statut,
  public? float $prix_total,
  public? \DateTimeInterface $date_commande = null,
 

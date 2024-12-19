@@ -26,10 +26,9 @@ class CommandeRequest extends FormRequest
             'user_id' => 'integer',
             'produit_id' => 'integer',
             'styliste_id' => 'integer',
-            'statut_paiement' => 'required|string|in:en_attente,terminé,en cours',
+            'statut' => 'required|string|in:en_attente,terminé,en cours',
             'prix_total' => 'required',
             'date_commande' => 'date',
-
         ];
     }
 }
