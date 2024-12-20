@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Produit extends Model
 {
-    protected $fillable = ['mensuration_id','styliste_id', 'nom', 'description', 'prix', 'categorie_id', 'delai_confection'];
+    protected $fillable = ['mensuration_id','modele_id','styliste_id', 'nom', 'description', 'prix', 'categorie_id', 'delai_confection'];
 
     /** @use HasFactory<\Database\Factories\ProduitFactory> */
     use HasFactory;
@@ -32,9 +32,17 @@ class Produit extends Model
     {
         return $this->hasMany(Photo::class,'forein_id');
     }
-
+    public function categorie()
+    {
+        return $this->belongsTo(Categorie::class);
+    }
     public function styliste():BelongsTo
     {
         return $this->belongsTo(Styliste::class);
+    }
+
+    public function modele():BelongsTo
+    {
+        return $this->belongsTo(Modele::class);
     }
 }

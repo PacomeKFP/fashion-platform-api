@@ -28,4 +28,9 @@ class Modele extends Model
     {
         return $this->hasMany(Photo::class,'forein_id');
     }
+
+    public function produits()
+    {
+        return $this->hasMany(Produit::class);
+    }
 }

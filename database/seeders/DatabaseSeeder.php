@@ -21,13 +21,13 @@ class DatabaseSeeder extends Seeder
         $this->call([
             StylisteSeeder::class,
             CategorieSeeder::class,
+            ModeleSeeder::class,
             MensurationSeeder::class,
             ProduitSeeder::class,
             CommandeSeeder::class,
             PaiementSeeder::class,
             AvisStylisteSeeder::class,
             AvisClientSeeder::class,
-            ModeleSeeder::class,
             LigneCommandeSeeder::class,
             PhotoSeeder::class
         ]);

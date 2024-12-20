@@ -25,6 +25,17 @@ class ModeleResource extends JsonResource
                 'nom'=>$this->categorie->nom
             ],
             'styliste'=> new StylisteResource($this->styliste),
+            'produits'=>ProduitResource::collection($this->produits)->map(function ($produit) {
+                return [
+                    'id' => $produit->id,
+                    'nom' => $produit->nom,
+                    'description' => $produit->description,
+                    'mensuration'=> new MensurationResource($produit->mensuration),
+                    'prix' => $produit->prix,
+                    'delai_confection' => $produit->delai_confection,
+                ];
+            }),
+            'produits'=>ProduitResource::collection($this->produits),
             'pictures' => PhotoResource::collection($this->photos),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
