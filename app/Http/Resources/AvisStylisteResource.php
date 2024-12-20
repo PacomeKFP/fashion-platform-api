@@ -17,11 +17,12 @@ class AvisStylisteResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'produit_id' => $this->produit_id,
-            'user_id' => $this->user_id,
             'note' => $this->note,
             'commentaire' => $this->commentaire,
-            
+            'user' =>new UserResource( $this->user),
+            'styliste' => new StylisteResource($this->styliste),
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at
         ];
     }
 }

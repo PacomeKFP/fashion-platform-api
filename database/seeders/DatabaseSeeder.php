@@ -20,13 +20,13 @@ class DatabaseSeeder extends Seeder
         User::factory(9)->create();
         $this->call([
             StylisteSeeder::class,
+            CategorieSeeder::class,
             MensurationSeeder::class,
             ProduitSeeder::class,
             CommandeSeeder::class,
             PaiementSeeder::class,
             AvisStylisteSeeder::class,
             AvisClientSeeder::class,
-            CategorieSeeder::class,
             ModeleSeeder::class,
             LigneCommandeSeeder::class,
             PhotoSeeder::class

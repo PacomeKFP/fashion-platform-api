@@ -24,6 +24,8 @@ class ProduitResource extends JsonResource
             'delai_confection' => $this->delai_confection,
             'styliste' => new StylisteResource($this->styliste),
             'mensuration'=> new MensurationResource($this->mensuration),
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at
 
         ];
     }

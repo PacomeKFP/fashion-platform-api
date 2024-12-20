@@ -17,9 +17,9 @@ class AvisStylisteFactory extends Factory
     public function definition(): array
     {
         $user_id = \App\Models\User::all()->pluck('id')->toArray();
-        $produit_id = \App\Models\Produit::all()->pluck('id')->toArray();
+        $styliste_id = \App\Models\Styliste::all()->pluck('id')->toArray();
         return [
-            'produit_id' => fake()->randomElement($produit_id),
+            'styliste_id' => fake()->randomElement($styliste_id),
             'user_id' => fake()->randomElement($user_id),
             'note' => fake()->randomNumber(),
             'commentaire' => fake()->sentence()

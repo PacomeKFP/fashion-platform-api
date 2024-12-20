@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\User;
-use App\Models\Produit;
+use App\Models\Styliste;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('avis_stylistes', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Produit::class);
+            $table->foreignIdFor(Styliste::class);
             $table->foreignIdFor(User::class);
             $table->integer('note')->nullable();
             $table->text('commentaire')->nullable();

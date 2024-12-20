@@ -18,11 +18,11 @@ class CommandeResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'user_id' => $this->user_id,
-            'styliste_id' => $this->styliste_id,
             'statut' => $this->statut,
             'prix_total' => $this->prix_total,
             'date_commande' => $this->date_commande,
+            'user' => new UserResource( $this->user),
+            'styliste' =>new StylisteResource($this->styliste),
             // 'produits'=>ProduitResource::collection($this->produits),
             'produits' => $this->produits->map(function ($produit) {
                 return [
@@ -36,6 +36,8 @@ class CommandeResource extends JsonResource
                     'mensuration'=> new MensurationResource($produit->mensuration),
                 ];
             }),
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at
 
         ];
     }

@@ -11,4 +11,13 @@ class Categorie extends Model
 
     /** @use HasFactory<\Database\Factories\CategorieFactory> */
     use HasFactory;
+    public  function produits()
+    {
+        return $this->hasMany(Produit::class);
+    }
+
+    public function modeles_stylistes()
+    {
+        return $this->hasMany(Modele::class);
+    }
 }

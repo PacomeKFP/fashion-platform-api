@@ -18,13 +18,14 @@ class ProduitFactory extends Factory
     {
         $stiliste_id = \App\Models\Styliste::all()->pluck('id')->toArray();
         $mensuration_id = \App\Models\Mensuration::all()->pluck('id')->toArray();
+        $categorie_id = \App\Models\Categorie::all()->pluck('id')->toArray();
         return [
             'styliste_id' => fake()->randomElement($stiliste_id),
             'mensuration_id' => fake()->randomElement($mensuration_id),
+            'categorie_id' => fake()->randomElement($categorie_id),
             'nom' => fake()->word(),
             'description' => fake()->sentence(),
             'prix' => fake()->randomFloat(),
-            'categories' => fake()->word(),
             'delai_confection' => fake()->date()
         ];
     }

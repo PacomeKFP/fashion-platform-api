@@ -20,10 +20,14 @@ class ModeleResource extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'intervalPrix' => $this->intervalPrix,
-            'categorie' => new CategorieResource($this->categorie),
+            'categorie'=>[
+                'id'=>$this->categorie->id,
+                'nom'=>$this->categorie->nom
+            ],
             'styliste'=> new StylisteResource($this->styliste),
-            'pictures' => PhotoResource::collection($this->photos)
-
+            'pictures' => PhotoResource::collection($this->photos),
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at
         ];
     }
 }

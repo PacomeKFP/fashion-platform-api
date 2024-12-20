@@ -5,24 +5,19 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AvisClientResource extends JsonResource
+class UserResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
      *
-     * @param  Request  $request
      * @return array<string, mixed>
      */
     public function toArray(Request $request): array
     {
         return [
             'id' => $this->id,
-            'produit_id' => $this->produit_id,
-            'user_id' => $this->user_id,
-            'note' => $this->note,
-            'commentaire' => $this->commentaire,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at
+            'name' => $this->name,
+            'email' => $this->email
         ];
     }
 }

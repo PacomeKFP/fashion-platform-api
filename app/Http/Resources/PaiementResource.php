@@ -17,11 +17,12 @@ class PaiementResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'commande_id' => $this->commande_id,
+            'commande' =>new CommandeResource($this->commande),
             'montant' => $this->montant,
             'date_paiement' => $this->date_paiement,
             'statut_paiement' => $this->statut_paiement,
-            
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at
         ];
     }
 }

@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Produit extends Model
 {
-    protected $fillable = ['mensuration_id','styliste_id', 'nom', 'description', 'prix', 'categories', 'delai_confection'];
+    protected $fillable = ['mensuration_id','styliste_id', 'nom', 'description', 'prix', 'categorie_id', 'delai_confection'];
 
     /** @use HasFactory<\Database\Factories\ProduitFactory> */
     use HasFactory;

@@ -22,7 +22,7 @@ class AvisStylisteRequest extends FormRequest
     public function rules()
     {
         return [
-            'produit_id' => 'integer',
+            'styliste_id' => 'integer',
             'user_id' => 'integer',
             'note' => 'integer',
             'commentaire' => 'string',

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Categorie;
 use App\Models\Styliste;
 use App\Models\Mensuration;
 use Illuminate\Support\Facades\Schema;
@@ -17,10 +18,10 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Styliste::class);
             $table->foreignIdFor(Mensuration::class);
+            $table->foreignIdFor(Categorie::class);
             $table->string('nom')->nullable();//
             $table->text('description')->nullable();//
             $table->float('prix')->nullable();
-            $table->string('categories')->nullable();
             $table->date('delai_confection')->nullable();
             $table->timestamps();
         });

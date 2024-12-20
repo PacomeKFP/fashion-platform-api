@@ -29,7 +29,7 @@ class Commande extends Model
 
     public function styliste()
     {
-        return $this->belongsTo(User::class, "styliste_id", "id");
+        return $this->belongsTo(Styliste::class);
     }
 
     public function produits(): BelongsToMany
