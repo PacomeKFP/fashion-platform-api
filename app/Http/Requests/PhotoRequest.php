@@ -23,8 +23,9 @@ class PhotoRequest extends FormRequest
     {
         return [
             'forein_id' => 'integer',
-            'path' => 'string|max:255',
-            
+            'photos' => 'required|array',
+            'photos.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
+
         ];
     }
 }

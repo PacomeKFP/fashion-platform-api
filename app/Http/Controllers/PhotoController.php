@@ -9,6 +9,7 @@ use App\Models\Photo;
 use App\Http\Resources\PhotoResource;
 use App\Services\PhotoService;
 use App\DTO\PhotoDTO;
+use App\Models\Modele;
 use Illuminate\Http\Response;
 
 class PhotoController extends Controller
@@ -28,11 +29,27 @@ class PhotoController extends Controller
         return PhotoResource::collection($photo);
     }
 
-    public function store(PhotoRequest $request)
+    public function store(PhotoRequest $request,$id)
     {
-        $dto = PhotoDTO::fromRequest($request);
-        $photo = $this->service->create($dto);
-        return new PhotoResource($photo);
+        // $dto = PhotoDTO::fromRequest($request);
+
+        // $produit = Modele::findOrFail($produitId);
+        $photoPaths = [];
+        foreach ($request->file('photos') as $photo) {
+            $path = $photo->store('produits', 'public');
+            $photoPaths[] = $path;
+            Photo::create([
+                'path' => $path,
+                'forein_id' => $id
+            ]);
+        }
+
+
+
+        return response()->json([
+            'message' => 'Photos uploaded successfully',
+            'photos' => $photoPaths
+        ]);
     }
 
     public function show(Photo $photo)

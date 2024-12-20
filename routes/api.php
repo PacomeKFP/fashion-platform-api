@@ -16,6 +16,9 @@ Route::apiResource('avis-styliste', App\Http\Controllers\AvisStylisteController:
 Route::apiResource('avis-client', App\Http\Controllers\AvisClientController::class);
 Route::apiResource('categorie', App\Http\Controllers\CategorieController::class);
 Route::apiResource('modele', App\Http\Controllers\ModeleController::class);
+// Route::post('model', [App\Http\Controllers\ModeleController::class, 'store'])->name('modele.store');
 Route::apiResource('mensuration', App\Http\Controllers\MensurationController::class);
 Route::apiResource('ligne-commande', App\Http\Controllers\LigneCommandeController::class)->only('store', 'update', 'destroy');
-Route::apiResource('photo', App\Http\Controllers\PhotoController::class);
+Route::apiResource('photo', App\Http\Controllers\PhotoController::class)->except('store');
+Route::post('photo', [App\Http\Controllers\PhotoController::class, 'store'])->name('photo.store');
+
